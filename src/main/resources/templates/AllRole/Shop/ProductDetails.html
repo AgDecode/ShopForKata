@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Products</title>
+    <link rel="stylesheet" href="ProductDetails.css">
+</head>
+<body>
+
+<header th:replace="AllRole/borders/Header.html"></header>
+
+<div class="product-container">
+    <img th:src="@{/images/{imagePath}(imagePath=${product.getImagePath()} + '.jpg')}" th:alt="${product.name}">
+    <h3 th:text="${product.getName()}"></h3>
+    <p th:text="${product.getInfo()}"></p>
+    <p th:text="'Цена: ' + ${product.getPrice()} + ' руб.'"></p>
+    <p th:text="'Осталось: ' + ${product.getCountInInventory()}"></p>
+    <input type="number" class="quantity-input" value="1" min="1">
+    <form th:action="@{/shop}" th:method="POST">
+        <input type="hidden" name="productId" th:value="${product.getId()}" />
+        <input type="submit" value="Положить в корзину" />
+    </form>
+</div>
+
+<footer th:replace="AllRole/borders/Footer.html"></footer>
+
+</body>
+</html>

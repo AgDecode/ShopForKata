@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit book</title>
+    <link rel="stylesheet" href="editProduct.css">
+</head>
+<body>
+
+<header th:replace="AllRole/borders/Header.html"></header>
+
+
+<form th:method="PATCH" th:action="@{/ADMIN/product/{id}(id=${product.getId()})}" th:object="${product}">
+    <label for="ProductName">Enter Product:</label>
+    <input type="text" th:field="*{name}" id="ProductName"/>
+    <br/>
+    <label for="type">Enter type:</label>
+    <input type="text" th:field="*{type}" id="type"/>
+    <br/>
+    <label for="price">Enter price:</label>
+    <input type="text" th:field="*{price}" id="price"/>
+    <br/>
+    <label for="info">Enter info:</label>
+    <input type="text" th:field="*{info}" id="info"/>
+    <br/>
+    <label for="countInInventory">Enter countInInventory:</label>
+    <input type="text" th:field="*{countInInventory}" id="countInInventory"/>
+    <br/>
+    <label for="allowedForChildren">Enter isAllowedForChildren:</label>
+    <input type="text" th:field="*{allowedForChildren}" id="allowedForChildren"/>
+    <br/>
+    <label for="imagePath">Enter imagePath:</label>
+    <input type="text" th:field="*{imagePath}" id="imagePath"/>
+    <br/>
+
+    <input type="submit" value="Edit!">
+</form>
+<form th:action="@{/ADMIN/product/{id}(id=${product.getId()})}" method="post">
+    <input type="hidden" name="_method" value="DELETE"/>
+    <input type="submit" value="Delete"/>
+</form>
+
+<footer th:replace="AllRole/borders/Footer.html"></footer>
+
+</body>
+</html>

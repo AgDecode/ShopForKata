@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас</title>
+    <link rel="stylesheet" href="aboutUs.css">
+</head>
+<body>
+
+<header><div th:replace="AllRole/borders/Header.html"></div></header>
+
+<div class="container">
+    <section id="about">
+        <h2>О нашем магазине</h2>
+        <p>Мы - команда профессионалов, занимающаяся продажей качественных товаров для наших клиентов. Наш магазин предлагает широкий ассортимент продукции по доступным ценам. Мы гордимся своими продуктами и стремимся обеспечить наших клиентов высоким уровнем обслуживания.</p>
+        <p>Мы всегда открыты для ваших вопросов и предложений. Не стесняйтесь связаться с нами!</p>
+    </section>
+
+    <section id="team">
+        <h2>Наша команда</h2>
+        <div class="team-member">
+            <img src="team-member1.jpg" alt="Участник команды 1">
+            <h3>Иван Иванов</h3>
+            <p>Директор</p>
+        </div>
+        <div class="team-member">
+            <img src="team-member2.jpg" alt="Участник команды 2">
+            <h3>Елена Петрова</h3>
+            <p>Менеджер по продажам</p>
+        </div>
+        <div class="team-member">
+            <img src="team-member3.jpg" alt="Участник команды 3">
+            <h3>Алексей Сидоров</h3>
+            <p>Специалист по логистике</p>
+        </div>
+    </section>
+</div>
+
+<footer th:replace="AllRole/borders/Footer.html"></footer>
+
+</body>
+</html>

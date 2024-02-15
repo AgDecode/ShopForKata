@@ -1,0 +1,34 @@
+/* Простой стиль для карточек товаров */
+#products-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#products-container th, #products-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#products-container th {
+    background-color: #f2f2f2;
+}
+
+#products-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#products-container tr:hover {
+    background-color: #ddd;
+}
+
+/* Добавленные стили для карточек товаров в таблице */
+.product-card img {
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+}
+
+.product-card h3, .product-card p {
+    margin: 0;
+}

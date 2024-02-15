@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit People</title>
+    <link rel="stylesheet" href="EditProfile.css">
+</head>
+<body>
+
+<header th:replace="AllRole/borders/Header.html"></header>
+
+<form th:method="PATCH" th:action="@{/profile/{UserName}(UserName = ${person.getUserName()})}" th:object="${person}">
+    <label for="fullName">Enter userName:</label>
+    <input type="text" th:field="*{userName}" id="fullName"/>
+    <br/>
+    <label for="fullDateOfBirthday">Enter fullDateOfBirthday:</label>
+    <input type="date" th:field="*{fullDateOfBirthday}" id="fullDateOfBirthday"/>
+    <br/>
+    <label for="numberPhone">Enter numberPhone:</label>
+    <input type="text" th:field="*{numberPhone}" id="numberPhone"/>
+    <br/>
+    <label for="email">Enter email:</label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <br/>
+    <label for="password">Enter password:</label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <br/>
+    <label for="Role">Enter Role:</label>
+    <input type="text" th:field="*{role}" id="Role" readonly>
+    <br/>
+    <label for="images"></label>
+    <input type="hidden" th:field="*{images}" id="images" readonly>
+    <br/>
+    <input type="submit" value="Edit!">
+</form>
+<form th:method="DELETE" th:action="@{/profile/{UserName}(UserName = ${person.getUserName()})}" th:object="${person}">
+    <input type="submit" value="Delete.">
+</form>
+
+<footer th:replace="AllRole/borders/Footer.html"></footer>
+
+</body>
+</html>

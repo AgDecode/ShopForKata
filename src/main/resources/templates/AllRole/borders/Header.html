@@ -1,0 +1,33 @@
+<!-- Header.html -->
+<div id="header">
+  <h1>Мой интернет-магазин</h1>
+  <ul id="navigation">
+    <li><a href="/open">Главная</a></li>
+    <li><a href="/shop">Каталог</a></li>
+    <li><a href="/aboutUs">О нас</a></li>
+    <li><a href="/Contacts">Контакты</a></li>
+
+    <li>
+    <div>
+      <!--/*@thymesVar id="isAdminRole" type="alex.Bank.AOP.aspects.IsLoginAspect"*/-->
+      <div th:if="${isAdminRole}">
+        <a href="/ADMIN/product">Product</a>
+        <a href="/ADMIN/ManagePeople">ManagePeople</a>
+      </div>
+    </div>
+    </li>
+
+    <li>
+      <!--/*@thymesVar id="isLoggedIn" type="alex.Bank.AOP.aspects.IsLoginAspect"*/-->
+      <div th:if="${isLoggedIn}">
+        <button>    <!--/*@thymesVar id="userName" type="alex.Bank.AOP.aspects.IsLoginAspect"*/-->
+          <a th:href="@{/profile/{userName}(userName = ${userName})}">Профиль</a></button>
+      </div>
+      <div th:unless="${isLoggedIn}">
+        <button><a href="/login">Вход</a></button>
+        <button><a href="/registration">Регистрация</a></button>
+      </div>
+    </li>
+</div>
+
+<link rel="stylesheet" href="Footer.css">

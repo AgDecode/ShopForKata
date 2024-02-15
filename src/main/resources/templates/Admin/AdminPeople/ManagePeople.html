@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All People</title>
+</head>
+<body>
+<header th:replace="AllRole/borders/Header.html"></header>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>User Name</th>
+        <th>FullDateOfBirthday</th>
+        <th>getNumberPhone</th>
+        <th>getEmail</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="person : ${people}">
+        <td th:text="${person.getId()}"></td>
+        <td th:text="${person.getUserName()}"></td>
+        <td th:text="${person.getFullDateOfBirthday()}"></td>
+        <td th:text="${person.getNumberPhone()}"></td>
+        <td th:text="${person.getEmail()}"></td>
+        <td>
+            <form th:action="@{/ADMIN/ManagePeople/DeletePerson/{userName}(userName = ${person.getUserName()})}" th:method="delete">
+                <button type="submit">Удалить</button>
+            </form>
+        </td>
+
+        <td>
+        <td>
+            <span th:text="${person.getRole()}"></span>
+            <form th:action="@{/ADMIN/ManagePeople/ChangeRole/{userName}(userName=${person.getUserName()})}" th:method="post">
+                <label>
+                    <select name="role">
+                        <option value="ROLE_USER" th:selected="${'ROLE_USER' == person.getRole()}">USER</option>
+                        <option value="ROLE_ADMIN" th:selected="${'ROLE_ADMIN' == person.getRole()}">ADMIN</option>
+                    </select>
+                </label>
+                <button type="submit">Изменить роль</button>
+            </form>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+<footer th:replace="AllRole/borders/Footer.html"></footer>
+
+</body>
+</html>

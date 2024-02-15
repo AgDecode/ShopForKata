@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New book</title>
+    <link rel="stylesheet" href="Registration.css">
+</head>
+<body>
+<header th:replace="AllRole/borders/Header.html"></header>
+
+<form th:method="POST" th:action="@{/registration}" th:object="${person}">
+    <label for="userName">Enter userNameID:</label>
+    <input type="text" th:field="*{userName}" id="userName"/>
+    <div style="color: red" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+    <br/>
+    <label for="fullDateOfBirthday">Enter fullDateOfBirthday:</label>
+    <input type="date" th:field="*{fullDateOfBirthday}" id="fullDateOfBirthday"/>
+    <br/>
+    <label for="email">Enter email:</label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <br/>
+    <label for="numberPhone">Enter numberPhone:</label>
+    <input type="text" th:field="*{numberPhone}" id="numberPhone"/>
+    <br/>
+    <label for="password">Enter password:</label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <br/>
+    <input type="submit" value="Create!">
+</form>
+
+<footer th:replace="AllRole/borders/Footer.html"></footer>
+</body>
+</html>

@@ -1,0 +1,24 @@
+/* Простой стиль для карточек товаров */
+#products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -10px; /* Компенсируем внешние отступы для правильного позиционирования карточек */
+}
+
+.product-card {
+    width: calc(20% - 20px);
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px; /* Задаем внутренние отступы для карточек */
+    box-sizing: border-box; /* Учитываем padding и border в общей ширине */
+}
+
+.product-card img {
+    width: 50%; /* Задаем 100% ширины для изображений */
+    height: auto; /* Поддерживаем пропорциональные размеры */
+    object-fit: contain; /* Обеспечиваем сохранение пропорций и вписывание изображения в размеры */
+}
+.quantity-input {
+    width: 50px;
+}

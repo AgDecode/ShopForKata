@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список товаров</title>
+    <link rel="stylesheet" href="ManageProducts.css">
+</head>
+<body>
+
+<header th:replace="AllRole/borders/Header.html"></header>
+
+<h1>Список товаров</h1>
+
+<div id="products-container">
+    <table>
+        <thead>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Ссылка</th>
+            <th>Цена</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Контейнер, в который будут добавляться карточки товаров -->
+        <tr th:each="product : ${product}" class="product-card">
+            <td><h3 th:text="${product.getName()}"></h3></td>
+            <td><p th:text="${product.getName()}"></p></td>
+            <td><a th:href="@{/ADMIN/product/{id}/edit(id=${product.getId()})}">Edit</a></td>
+            <td><p th:text="'Цена: ' + ${product.getPrice()} + ' руб.'"></p></td>
+        </tr>
+        </tbody>
+    </table>
+    <form th:action="@{/ADMIN/product/new}" th:method="GET">
+        <input type="submit" value="New Product"/>
+    </form>
+</div>
+
+<footer th:replace="AllRole/borders/Footer.html"></footer>
+
+</body>
+</html>

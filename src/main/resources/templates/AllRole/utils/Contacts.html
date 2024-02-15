@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="Contacts.css">
+</head>
+
+<header th:replace="AllRole/borders/Header.html"></header>
+
+<body>
+    <div class="container">
+        <h1>Наши контакты</h1>
+        <div class="contact-info">
+            <h2>Телефон:</h2>
+            <p><span class="icon">&#9742;</span> +7 (123) 456-78-90</p>
+        </div>
+        <div class="contact-info">
+            <h2>ВКонтакте:</h2>
+            <p><span class="icon">&#127758;</span> <a href="https://vk.com/example">Наша группа ВКонтакте</a></p>
+        </div>
+        <div class="contact-info">
+            <h2>Telegram:</h2>
+            <p><span class="icon">&#10175;</span> <a href="https://t.me/example">@example_telegram</a></p>
+        </div>
+    </div>
+
+    <footer th:replace="AllRole/borders/Footer.html"></footer>
+</body>
+</html>

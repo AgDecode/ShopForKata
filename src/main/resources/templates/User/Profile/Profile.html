@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль Пользователя</title>
+  <link rel="stylesheet" href="Profile.css">
+</head>
+<body>
+<header th:replace="AllRole/borders/Header.html"></header>
+
+
+<div class="container">
+  <div class="profile-header">
+    <img th:src="@{/images/PersonImages/{imagePath}(imagePath=${person.getImages()} + '.jpg')}">
+    <h1 th:text="${person.getUserName()}"> UserName </h1>
+    <p th:text="${person.getRole()}" > </p>
+  </div>
+  <div class="profile-info">
+    <p>
+      <strong>Логин:</strong>
+      <span th:text="${person.getUserName()}"> UserName </span>
+    </p>
+    <p><strong>Дата рождения:</strong>
+      <span th:text="${person.getFullDateOfBirthday()}"> 01.01.1990 </span>
+    </p>
+    <p><strong>Номер телефона:</strong>
+      <span th:text="${person.getNumberPhone()}"> +1234567890 </span>
+    </p>
+    <p><strong>Почта:</strong>
+      <span th:text="${person.getEmail()}"> user@example.com </span>
+    </p>
+    <p><strong>Роль:</strong>
+      <span th:text="${person.getRole()}"> USER </span>
+    </p>
+    <a th:href="@{/profile/{UserName}/edit(UserName=${person.getUserName()})}">
+      <button class="button">Редактировать</button>
+    </a>
+    <a th:href="@{/profile/ShoppingСart/{UserName}(UserName=${person.getUserName()})}">
+      <button class="button">Корзина</button>
+    </a>
+    <form th:action="@{/logout}" th:method="POST">
+      <input type="submit" value="Logout" />
+    </form>
+  </div>
+</div>
+
+<footer th:replace="AllRole/borders/Footer.html"></footer>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit book</title>
+    <link rel="stylesheet" href="NewProduct.css">
+</head>
+<body>
+
+<header th:replace="AllRole/borders/Header.html"></header>
+
+
+<form th:method="POST" th:action="@{/ADMIN/product/new}">
+    <label for="ProductName">New Product:</label>
+    <input type="text" id="ProductName" name="name"/>
+    <br/>
+    <label for="type">Enter type:</label>
+    <input type="text" id="type" name="type"/>
+    <br/>
+    <label for="price">Enter price:</label>
+    <input type="text" id="price" name="price"/>
+    <br/>
+    <label for="info">Enter info:</label>
+    <input type="text" id="info" name="info"/>
+    <br/>
+    <label for="countInInventory">Enter countInInventory:</label>
+    <input type="text" id="countInInventory" name="countInInventory"/>
+    <br/>
+    <label for="isAllowedForChildren">Enter isAllowedForChildren:</label>
+    <input type="text" id="isAllowedForChildren" name="isAllowedForChildren"/>
+    <br/>
+    <label for="imagePath">Enter imagePath:</label>
+    <input type="text" id="imagePath" name="imagePath"/>
+    <br/>
+
+    <input type="submit" value="Add Product">
+</form>
+
+<footer th:replace="AllRole/borders/Footer.html"></footer>
+
+</body>
+</html>
